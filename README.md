@@ -11,8 +11,8 @@ You need to download a Docker image of RSelenium using a certain browser. Most t
 
 Once you have downloaded a image, you can run a container with this image. For this you need to write a statement with docker command in the terminal. Here is an example:
 
-<script>sudo docker run --name poder_judicial -v '/home/vcaquilpan/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug<script>
-
+<script> sudo docker run --name poder_judicial -v '/home/vcaquilpan/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug 
+  
 Where: 
   --name: is the name of your container. This is optional, but using a name is easier to identify your container.
   -v: this command indicates the relation between 'volumes' (as known as directories). This command allows you to connect a directory of your local computer (host) with a directory of your container. On this way, if you want to donwload a file in your container, this file will be downloaded in your computer. The form is "host directory:container directory". Note that in the example, the first path is written in quotations marks. This is necessary due to that path use a space inside. 
