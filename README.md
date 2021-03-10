@@ -52,5 +52,5 @@ rem_dr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
 
 Once, you have probed that in debugging mode everything goes okay, you can use a normal image of RSelenium (for example, selenium/standalone-firefox). This image is lighter that debug option. You can use the same ports and the same directories. To download periodically, you can use CRON to run your script when you want. More info here: https://stevenmortimer.com/automating-r-scripts-with-cron/.
 
-In this repository, a simple example is showed.
+In this repository, a [simple example](https://github.com/victor64bm/RSelenium---Download-files-with-Docker-images/blob/master/Poder_Judicial_Docker.R) is showed.
 
