@@ -12,7 +12,7 @@ You need to download a Docker image of RSelenium using a certain browser. Most t
 Once you have downloaded a image, you can run a container with this image. For this you need to write a statement with docker command in the terminal. Here is an example:
 
 ```sh
-<script> sudo docker run --name poder_judicial -v '/home/vcaquilpan/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug 
+<script> sudo docker run --name poder_judicial -v '/home/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug 
 ```  
 
 Where: 
@@ -30,23 +30,27 @@ You need to give the right permissions to the folder where you want to save the 
 
 In our R script, we have to set some browser parameters to download files in an automatically way. You need to add these lines:
 
+```r
 #Browser configuration. These apply to firefox Browser
 fprof <- makeFirefoxProfile(list(browser.download.folderList = 2L, browser.download.dir = "home/seluser/Downloads", 
                                  browser.download.manager.showWhenStarting = FALSE,
                                  browser.helperApps.neverAsk.openFile = "application/zip",
                                  browser.helperApps.neverAsk.saveToDisk =  "application/zip"))
+```
 
 These parameters set parameters to download automatically "zip" files avoidin to open dialog boxes. Besides, when you use remoteDriver function, you need to select the correct port and the capabilities created before. The port used here, it should be the same that you declared when your container was created.
 
+```r
 #Driver configuration. The object "fprof" is used in remoteDriver function.
 rem_dr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
                                   port = 4448L,
                                   browserName = "firefox", 
                                   extraCapabilities = fprof)
-                                 
+```
+
 # Step 5: Try production mode.
 
 Once, you have probed that in debugging mode everything goes okay, you can use a normal image of RSelenium (for example, selenium/standalone-firefox). This image is lighter that debug option. You can use the same ports and the same directories. To download periodically, you can use CRON to run your script when you want. More info here: https://stevenmortimer.com/automating-r-scripts-with-cron/.
 
-
+In this repository, a simple example is showed.
 
