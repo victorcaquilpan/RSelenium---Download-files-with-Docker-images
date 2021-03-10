@@ -11,7 +11,7 @@ You need to download a Docker image of RSelenium using a certain browser. Most t
 
 Once you have downloaded a image, you can run a container with this image. For this you need to write a statement with docker command in the terminal. Here is an example:
 
-sudo docker run --name poder_judicial -v '/home/vcaquilpan/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug
+<script>sudo docker run --name poder_judicial -v '/home/vcaquilpan/Documentos/R Scripts/RSelenium/Poder_Judicial/Descargas':/home/seluser/Downloads:rw -d --restart unless-stopped -p 4448:4444 -p 5906:5900 selenium/standalone-firefox-debug<script>
 
 Where: 
   --name: is the name of your container. This is optional, but using a name is easier to identify your container.
@@ -42,7 +42,7 @@ rem_dr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
                                   browserName = "firefox", 
                                   extraCapabilities = fprof)
                                  
-# Step 5: Try production mode
+# Step 5: Try production mode.
 
 Once, you have probed that in debugging mode everything goes okay, you can use a normal image of RSelenium (for example, selenium/standalone-firefox). This image is lighter that debug option. You can use the same ports and the same directories. To download periodically, you can use CRON to run your script when you want. More info here: https://stevenmortimer.com/automating-r-scripts-with-cron/.
 
